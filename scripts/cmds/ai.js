@@ -28,7 +28,7 @@ async function getAIResponse(input, userId, messageID) {
         { url: 'https://ai-chat-gpt-4-lite.onrender.com/api/hercai', params: { question: input } }
     ];
 
-    let response = " 🏵... 𝘚𝘢𝘭𝘶𝘵 👋 𝘦𝘯 𝘲𝘶𝘰𝘪 𝘱𝘶𝘪𝘴-𝘫𝘦 𝘷𝘰𝘶𝘴 𝘢𝘪𝘥𝘦𝘻 ?? .. 〜(^∇^〜）🤖 ";
+    let response = "🏂 |... 𝘚𝘢𝘭𝘶𝘵 👋 𝘦𝘯 𝘲𝘶𝘰𝘪 𝘱𝘶𝘪𝘴-𝘫𝘦 𝘷𝘰𝘶𝘴 𝘢𝘪𝘥𝘦𝘻 ?? ..  ";
     let currentIndex = 0;
 
     for (let i = 0; i < services.length; i++) {
@@ -60,12 +60,12 @@ module.exports = {
     onStart: async function ({ api, event, args }) {
         const input = args.join(' ').trim();
         if (!input) {
-            api.sendMessage(`🫰🏵`, event.threadID, event.messageID);
+            api.sendMessage(`🫰`, event.threadID, event.messageID);
             return;
         }
 
         const { response, messageID } = await getAIResponse(input, event.senderID, event.messageID);
-        api.sendMessage(`🏵...𝐣𝐨𝐮𝐣𝐨𝐮 𝐩𝐫𝐨𝐜𝐞̀𝐝𝐞 𝐚 𝐯𝐨𝐭𝐫𝐞 𝐫𝐞𝐪𝐮𝐞̂𝐭𝐞...🏵`, event.threadID, messageID);
+        api.sendMessage(`🍂...𝐭𝐚𝐧𝐣𝐢𝐫𝐨 𝐩𝐫𝐨𝐜𝐞̀𝐝𝐞 𝐚 𝐯𝐨𝐭𝐫𝐞 𝐫𝐞𝐪𝐮𝐞̂𝐭𝐞...🍂`, event.threadID, messageID);
     },
     onChat: async function ({ event, message }) {
         const messageContent = event.body.trim().toLowerCase();
@@ -73,7 +73,7 @@ module.exports = {
             const input = messageContent.replace(/^ai\s*/, "").trim();
             const { response, messageID } = await getAIResponse(input, event.senderID, message.messageID);
             // Construct message with special fonts
-            const formattedResponse = ` 🏵🌿..𝑱𝑶𝑼𝑱𝑶𝑼..🏵🌿 :\n━━━━━━━━━━━━━━━━\n${response} 🟡`;
+            const formattedResponse = `🏂 |.🍂🍀..𝑻𝑨𝑵𝑱𝑰𝑹𝑶..🍂🍀 :\n✦━━━━━━━━━━━━━━━━✦\n${response} 🟡`;
             message.reply(formattedResponse, messageID);
         }
     }
